@@ -1,3 +1,24 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import routesMenu from './routes/menu.js';
+import './config/dbClient.js';
+import bodyParser from 'body-parser';
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/menu', routesMenu);
+
+const PORT = process.env.PORT || 5100;
+app.listen(PORT, () => 
+    console.log(`Servidor en http://localhost:${PORT}`));
+
+
+/*
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
@@ -33,3 +54,4 @@ const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Servidor en http://localhost:${PORT}`);
 });
+*/

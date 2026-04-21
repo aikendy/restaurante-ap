@@ -1,15 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const Menu = require('../models/menu');
+import express from 'express';
+const route = express.Router();
+import menuController from '../controllers/menuController.js';
 
-router.get('/', async (req, res) => {
-    try {
-        const menu = await Menu.find();
-        res.json(menu);
-    } catch (error) {
-         console.log(error);
-        res.status(500).json({ error: 'Error al obtener el menú' });
-    }
-});
+route.post('/', menuController.create);
+route.get('/:id', menuController.getOne);
+route.get('/', menuController.getAll);
+route.put('/:id', menuController.update);
+route.delete('/:id', menuController.delete);
 
-module.exports = router;
+export default route;
