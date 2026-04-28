@@ -3,6 +3,8 @@ dotenv.config();
 
 import express from 'express';
 import routesMenu from './routes/menu.js';
+import orderRoutes from './routes/order.js'; 
+import userRoutes from './routes/user.js'; 
 import './config/dbClient.js';
 import bodyParser from 'body-parser';
 
@@ -10,8 +12,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use('/pedidos', orderRoutes);
 app.use('/menu', routesMenu);
+app.use('/usuarios', userRoutes); 
 
 const PORT = process.env.PORT || 5100;
 app.listen(PORT, () => 

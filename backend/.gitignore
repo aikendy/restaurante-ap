@@ -1,0 +1,31 @@
+# Dependencias
+node_modules/
+package-lock.json
+
+# Variables de entorno (CONTRASEÑAS!)
+.env
+.env.local
+.env.*.local
+
+# Archivos de prueba
+test-connection.js
+test-pedido.js
+seed-*.js
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# MongoDB local
+data/
+dump/
